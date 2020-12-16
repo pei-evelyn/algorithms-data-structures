@@ -1,6 +1,6 @@
-// Add Up To examples
+// TIME COMPLEXITY EXAMPLES
 
-// o(n)
+// O(n)
 const addUpToOne = n => {
   let total = 0;
   for (let i = 0; i <= n; i++) {
@@ -9,14 +9,13 @@ const addUpToOne = n => {
   return total;
 }
 
-// o(1)
+// O(1)
 
 const addUpToTwo = n => {
   return n * (n + 1) / 2;
 }
 
-console.log(addUpToOne(6));
-console.log(addUpToTwo(6));
+// possible way to track time.. but not the best as it's not always the same
 
 const t1 = performance.now();
 addUpToOne(1000000000);
@@ -28,8 +27,7 @@ addUpToTwo(1000000000);
 const t4 = performance.now();
 console.log(`Time elapsed: ${(t4 - t3) / 1000} seconds`)
 
-// Count up and down
-// o(n)
+// O(n)
 
 const countUpAndDown = n => {
   console.log('Going up!');
@@ -43,7 +41,7 @@ const countUpAndDown = n => {
   console.log('Back down, bye!');
 }
 
-// o(n^2)
+// O(n^2)
 
 const printAllPairs = n => {
   for (let i = 0; i < n; i++) {
@@ -51,4 +49,47 @@ const printAllPairs = n => {
       console.log(i, j);
     }
   }
+}
+
+
+// O(n)
+
+const logAtLeast5 = n => {
+  for (let i = 0; i <= Math.max(5, n); i++) {
+    console.log(i);
+  }
+}
+
+console.log(logAtLeast5(10));
+
+
+// O(1)
+
+const logAtMost5 = n => {
+  for (let i = 0; i <= Math.min(5, n); i++) {
+    console.log(i);
+  }
+}
+
+
+// SPACE COMPLEXITY EXAMPLES
+
+// O(1) space - only has two numbers (total & i)
+
+const sum = arr => {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i]
+  }
+  return total;
+}
+
+//O(n) space - new array that is dependent on arr.length (n)
+
+const double = arr => {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(2 * arr[i]);
+  }
+  return newArr;
 }
